@@ -21,7 +21,18 @@ export default function MealSugesstions() {
 
   return (
     <ScrollView>
-      <Text>Lets eat by your mood!</Text>
+      <Text>Meals for when you are feeling {mood}!</Text>
+
+      {loading ? (
+        <ActivityIndicator size="large" color="blue" />
+      ) : (
+        meals.map((meal) => (
+          <View key={meal.id}>
+            <Image source={{ uri: meal.image }} />
+            <Text>{meal.title}</Text>
+          </View>
+        ))
+      )}
     </ScrollView>
   );
 }
