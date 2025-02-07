@@ -1,9 +1,11 @@
-import { Text, View } from "react-native";
+import { View, Text } from 'react-native';
+import { Link } from 'expo-router';
 
-export default function Index() {
-	return (
-		<View>
-			<Text>feastr</Text>
-		</View>
-	);
+export default function Home() {
+  return (
+    <View>
+      <Text>Feastr</Text>
+      <Link href="/mealSuggestions">Go to Meal Suggestions</Link>
+    </View>
+  );
 }
