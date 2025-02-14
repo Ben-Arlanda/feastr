@@ -42,3 +42,16 @@ export const MealsByMood = async (mood: string) => {
     return [];
   }
 };
+
+export const MealDetails = async (mealId: number) => {
+  try {
+    const response = await axios.get(`${BASE_URL}/${mealId}/information`, {
+      params: { apiKey: API_KEY },
+    });
+
+    return response.data;
+  } catch (error) {
+    console.error('Error fetching meal details:', error);
+    return null;
+  }
+};
