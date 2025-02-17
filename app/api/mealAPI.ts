@@ -55,3 +55,19 @@ export const MealDetails = async (mealId: number) => {
     return null;
   }
 };
+
+export const fetchMealsByIngredients = async (ingredients: string) => {
+  try {
+    const response = await axios.get(`${BASE_URL}/findByIngredients`, {
+      params: {
+        ingredients,
+        number: 5,
+        apiKey: API_KEY,
+      },
+    });
+    return response.data;
+  } catch (error) {
+    console.error('Error fetching meals by ingredients:', error);
+    return [];
+  }
+};
